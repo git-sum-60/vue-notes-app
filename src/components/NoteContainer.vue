@@ -9,8 +9,8 @@
 
 
 <script>
-import NoteSelectors from "./NoteSelectors"
-import NoteEditor from "./NoteEditor"
+import NoteSelectors from "@/components/NoteSelectors"
+import NoteEditor from "@/components/NoteEditor"
 
 export default {
   name: 'note-container',

@@ -1,7 +1,7 @@
 <template>
   <div class="note-container">
     
-    <note-selectors />
+    <note-selectors v-bind:notes="notes" v-on:selectNote="selectNote" v-bind:selectedNoteId="selectedNoteId"/>
     <!-- note editor was here -->
     <note-editor />
   </div>
@@ -10,13 +10,23 @@
 
 <script>
 import NoteSelectors from "@/components/NoteSelectors"
-import NoteEditor from "@/components/NoteEditor"
+// import NoteSelectors from "./NoteSelectors"
+import NoteEditor from "./NoteEditor"
 
 export default {
   name: 'note-container',
   components: {
     NoteSelectors,
     NoteEditor
+  },
+  props: [
+    "notes",
+    "selectedNoteId"
+  ],
+  methods: {
+    selectNote: function(note) {
+      this.$emit("selectNote", note)
+    }
   }
 }
 </script>
